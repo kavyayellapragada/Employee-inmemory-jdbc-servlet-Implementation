@@ -5,19 +5,43 @@
 <web-app>
     <display-name>Archetype created web application</display-name>
     <servlet>
-        <servlet-name>servlet</servlet-name>
+        <servlet-name>DBServlet</servlet-name>
         <servlet-class>com.wavemaker.assignment.servlet.EmployeeServletDB</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>servlet1</servlet-name>
+        <servlet-name>MemoryServlet</servlet-name>
         <servlet-class>com.wavemaker.assignment.servlet.EmployeeServletMemory</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>servlet</servlet-name>
+        <servlet-name>DBServlet</servlet-name>
         <url-pattern>/usersdb/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>servlet1</servlet-name>
+        <servlet-name>MemoryServlet</servlet-name>
         <url-pattern>/usersmem/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.wavemaker.assignment.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.wavemaker.assignment.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>com.wavemaker.assignment.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/usersdb/*</url-pattern>
+    </filter-mapping>
 </web-app>
